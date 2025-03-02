@@ -15,21 +15,21 @@ A frontend application built using Next.js for managing tasks. This project comp
 ## Installation
 
 ### 1. Clone the Repository:
-
+```
 git clone https://github.com/kkadk/nextJS-frontend-task_manager.git
-
+```
 ### 2. Navigate to the Project Directory:
-
+```
 cd nextJS-frontend-task_manager
-
+```
 ### 3. Install Dependencies:
-
+```
 npm install
-
+```
 ### 4. Start the Development Server:
-
+```
 npm run dev
-
+```
 ### 5. Access the Application:
 
 Open your web browser and navigate to [http://localhost:3000](http://localhost:3000).
