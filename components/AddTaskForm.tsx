@@ -39,7 +39,6 @@ export default function AddTaskForm({ setTasks }: AddTaskFormProps) {
 
       const newTask = response.data
 
-      // ✅ Update tasks immediately after adding a new task
       setTasks((prevTasks) => [newTask, ...prevTasks])
 
       setTitle("")
