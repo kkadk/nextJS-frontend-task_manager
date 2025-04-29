@@ -13,7 +13,7 @@ interface Task {
 
 interface TaskItemProps {
   task: Task
-  onModify: (taskId: number, updatedTask: Partial<Task>) => void // ✅ Modify function
+  onModify: (taskId: number, updatedTask: Partial<Task>) => void 
   onDelete: (taskId: number) => void
 }
 
@@ -76,7 +76,6 @@ export default function TaskItem({ task, onModify, onDelete }: TaskItemProps) {
       )}
 
       <div className="flex items-center gap-2">
-        {/* ✅ Edit Button */}
         {isEditing ? (
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -97,7 +96,6 @@ export default function TaskItem({ task, onModify, onDelete }: TaskItemProps) {
           </motion.button>
         )}
         
-        {/* ✅ Delete Button */}
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
