@@ -20,12 +20,10 @@ export default function TaskList() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  // Fetch tasks initially
   useEffect(() => {
     fetchTasks()
   }, [])
 
-  // Fetch tasks from the server
   const fetchTasks = async () => {
     try {
       const token = getToken()
@@ -40,7 +38,6 @@ export default function TaskList() {
     }
   }
 
-  // Handle task update (edit)
   const handleTaskUpdate = async (taskId: number, updatedTask: Partial<Task>) => {
     try {
       const token = getToken()
@@ -50,7 +47,6 @@ export default function TaskList() {
         { headers: { Authorization: `Bearer ${token}` } }
       )
   
-      // Optimistic UI update
       setTasks((prevTasks) =>
         prevTasks.map((task) =>
           task.id === taskId ? { ...task, ...updatedTask } : task
@@ -61,14 +57,12 @@ export default function TaskList() {
     }
   }
 
-  // Handle task delete
   const handleTaskDelete = async (taskId: number) => {
     try {
       const token = getToken()
       await axios.delete(`http://localhost:8000/api/tasks/${taskId}/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      // Optimistic UI update for task deletion
       setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId))
     } catch (err) {
       setError("Error deleting task. Please try again.")
